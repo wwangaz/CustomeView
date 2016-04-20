@@ -1,4 +1,4 @@
-package com.example.wangweimin.customerview;
+package com.example.wangweimin.customerview.view;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -22,6 +22,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Scroller;
+
+import com.example.wangweimin.customerview.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -544,9 +546,9 @@ public class PieChart extends ViewGroup {
         Item current = mData.get(getCurrentItem());
         int targetAngle = current.mStartAngle + (current.mEndAngle - current.mStartAngle) / 2;
         targetAngle -= mCurrentItemAngle;
-        if(targetAngle < 90 && mPieRotation > 180) targetAngle += 360;
+        if (targetAngle < 90 && mPieRotation > 180) targetAngle += 360;
 
-        if(Build.VERSION.SDK_INT >= 11){
+        if (Build.VERSION.SDK_INT >= 11) {
             mAutoCenterAnimator.setIntValues(targetAngle);
             mAutoCenterAnimator.setDuration(AUTOCENTER_ANIM_DURATION).start();
         }
@@ -669,7 +671,7 @@ public class PieChart extends ViewGroup {
                     Integer.MAX_VALUE
             );
 
-            if(Build.VERSION.SDK_INT >= 11){
+            if (Build.VERSION.SDK_INT >= 11) {
                 mScrollAnimator.setDuration(mScroller.getDuration());
                 mScrollAnimator.start();
             }
@@ -679,14 +681,14 @@ public class PieChart extends ViewGroup {
         @Override
         public boolean onDown(MotionEvent e) {
             mPieView.accelerate();
-            if(isAnimationRunning()){
+            if (isAnimationRunning()) {
                 stopScrolling();
             }
             return true;
         }
     }
 
-    private boolean isAnimationRunning(){
+    private boolean isAnimationRunning() {
         return !mScroller.isFinished() || (Build.VERSION.SDK_INT >= 11 && mAutoCenterAnimator.isRunning());
     }
 

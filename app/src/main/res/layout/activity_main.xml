@@ -3,39 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.wangweimin.customerview.MainActivity">
+    tools:context=".activity.MainActivity">
 
-    <TextView
-        android:id="@+id/hello_world"
-        android:text="Hello World!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <com.example.wangweimin.customerview.view.AdvanceMailCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
 
-    <com.example.wangweimin.customerview.PieChart
-        android:id="@+id/pie_chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:pieShowText="true"
-        app:labelPosition="left"
-        app:labelWidth="20dp"
-        app:labelHeight="20dp"
-        app:labelColor="#ff3e3e3e"
-        app:autoCenterPointerInSlice="true"
-        app:pointerRadius="2dp"
-        >
-    </com.example.wangweimin.customerview.PieChart>
+    <!--<com.example.wangweimin.customerview.view.PieChart-->
+    <!--android:id="@+id/pie_chart"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--app:pieShowText="true"-->
+    <!--app:labelPosition="left"-->
+    <!--app:labelWidth="20dp"-->
+    <!--app:labelHeight="20dp"-->
+    <!--app:labelColor="#ff3e3e3e"-->
+    <!--app:autoCenterPointerInSlice="true"-->
+    <!--app:pointerRadius="2dp"-->
+    <!--&gt;-->
+    <!--</com.example.wangweimin.customerview.view.PieChart>-->
 
-    <Button
-        android:id="@+id/reset"
-        android:layout_below="@id/pie_chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/reset_button"/>
+    <!--<Button-->
+    <!--android:id="@+id/reset"-->
+    <!--android:layout_below="@id/pie_chart"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:text="@string/reset_button"/>-->
 </RelativeLayout>
