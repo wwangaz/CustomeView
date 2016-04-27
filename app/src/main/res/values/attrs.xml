@@ -15,4 +15,8 @@
         <attr name="pointerRadius" format="dimension"/>
         <attr name="pieShowText" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="WheelView">
+        <attr name="itemHeight" format="dimension"/>
+    </declare-styleable>
 </resources>
