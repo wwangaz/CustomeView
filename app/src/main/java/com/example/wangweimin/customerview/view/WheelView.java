@@ -35,12 +35,13 @@ public class WheelView extends ScrollView {
     private int viewWidth;
     private int itemHeight;
     private int initialY;
-    private int selectedIndex = 0;
-    private int offset = selectedIndex;
+    private int selectedIndex = 1;
+    private int offset = 1;
     private int displayItemCount;
     private List<String> items;
+    private OnWheelViewListener listener;
 
-    private long newCheck;
+    private long newCheck = 1000;
 
     public WheelView(Context context) {
         super(context);
@@ -63,7 +64,6 @@ public class WheelView extends ScrollView {
 
         initialY = getScrollY();
 
-
         init(context);
     }
 
@@ -81,6 +81,7 @@ public class WheelView extends ScrollView {
         views.setOrientation(LinearLayout.VERTICAL);
         this.addView(views);
 
+        //处理滑动
         scrollTask = new Runnable() {
             @Override
             public void run() {
@@ -124,7 +125,14 @@ public class WheelView extends ScrollView {
         };
     }
 
-    private void initData() {
+    public void setOnSelectedListener(OnWheelViewListener listener) {
+        this.listener = listener;
+    }
+
+    private void initData(List<String> data) {
+        if (data != null && data.size() > 0)
+            items = data;
+
         displayItemCount = offset * 2 + 1;
 
         views.removeAllViews();
@@ -136,6 +144,7 @@ public class WheelView extends ScrollView {
         refreshItemView(0);
     }
 
+    //根据子项生成TextView
     private TextView createView(String item) {
         TextView tv = new TextView(context);
         tv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -154,28 +163,43 @@ public class WheelView extends ScrollView {
         return tv;
     }
 
+    //选择项回调函数
     private void onSelectedCallBack() {
-
+        if (listener != null)
+            listener.onSelected(selectedIndex, items.get(selectedIndex)); //此处注意items的position要与selectedIndex保持同步
     }
 
-    private void refreshItemView(int selectedIndex) {
-
-        offset = selectedIndex;
+    //根据选择项更新View
+    private void refreshItemView(int newSelectedIndex) {
+        int dIndex = newSelectedIndex - selectedIndex;
+        this.selectedIndex = newSelectedIndex;
+        //选中项变为蓝色
+        if (views != null) {
+            ((TextView) views.getChildAt(selectedIndex)).setTextColor(Color.parseColor("#83cde6"));
+        }
+        //滑动至选中项
+        this.smoothScrollBy(0, dIndex * itemHeight);
+        invalidate();
     }
 
+    //dp转换为px
     private int dip2px(float dp) {
-        return 0;
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
     }
 
+    //获取view测量高度
     private int getViewMeasureHeight(View v) {
         return v.getHeight();
     }
 
-    private int[] obtainSelectedAreaBorder() {
-
-        return new int[2];
+    //获取选择子项的上下边界
+    private float[] obtainSelectedAreaBorder() {
+        float upperBorder = getY() - getHeight() / 3;
+        float lowerBorder = upperBorder - getHeight() / 3;
+        return new float[]{upperBorder, lowerBorder};
     }
 
+    //为背景直绘两条线
     @Override
     public void setBackgroundDrawable(Drawable background) {
 
@@ -191,8 +215,8 @@ public class WheelView extends ScrollView {
         background = new Drawable() {
             @Override
             public void draw(Canvas canvas) {
-                canvas.drawLine(viewWidth * 1 / 6, obtainSelectedAreaBorder()[0], viewWidth * 5 / 6, obtainSelectedAreaBorder()[0], paint);
-                canvas.drawLine(viewWidth * 1 / 6, obtainSelectedAreaBorder()[1], viewWidth * 5 / 6, obtainSelectedAreaBorder()[1], paint);
+                canvas.drawLine(viewWidth / 6f, obtainSelectedAreaBorder()[0], viewWidth * 5 / 6f, obtainSelectedAreaBorder()[0], paint);
+                canvas.drawLine(viewWidth / 6f, obtainSelectedAreaBorder()[1], viewWidth * 5 / 6f, obtainSelectedAreaBorder()[1], paint);
             }
 
             @Override

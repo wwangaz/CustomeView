@@ -1,19 +1,41 @@
 package com.example.wangweimin.customerview.activity;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 
-import com.example.wangweimin.customerview.view.PieChart;
 import com.example.wangweimin.customerview.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
+
+    private RelativeLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mainLayout = new RelativeLayout(this);
+
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add(i + "");
+        }
+        popupWindows(list);
+
+    }
+
 
 //        Resources res = getResources();
 
@@ -32,5 +54,23 @@ public class MainActivity extends AppCompatActivity {
 //                pie.setCurrentItem(0);
 //            }
 //        });
+
+    private void popupWindows(List<String> list) {
+        LinearLayout wheelLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.wheel_view, mainLayout, false);
+        if (wheelLayout != null) {
+            PopupWindow mPopupWindow;
+            mPopupWindow = new PopupWindow(this);
+            mPopupWindow.setContentView(wheelLayout);
+            mPopupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+            mPopupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+
+            mPopupWindow.setFocusable(true);
+            mPopupWindow.setOutsideTouchable(true);
+
+            mPopupWindow.showAtLocation(mainLayout, Gravity.BOTTOM, 0, 0);
+        }
+
     }
+
 }
+
