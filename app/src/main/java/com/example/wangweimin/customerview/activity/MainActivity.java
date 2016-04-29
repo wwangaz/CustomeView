@@ -4,35 +4,45 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.wangweimin.customerview.R;
+import com.example.wangweimin.customerview.view.WheelView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class MainActivity extends AppCompatActivity {
 
     private RelativeLayout mainLayout;
+    private TextView showSelect;
+    private Button showSelectBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainLayout = new RelativeLayout(this);
+        mainLayout = (RelativeLayout) findViewById(R.id.main_layout);
+        showSelect = (TextView) findViewById(R.id.show_select_tx);
+        showSelectBtn = (Button) findViewById(R.id.show_select_bt);
 
-        List<String> list = new ArrayList<>();
+        final List<String> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            list.add(i + "");
+            list.add(i + " ");
         }
-        popupWindows(list);
+        showSelectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupWindows(list);
+            }
+        });
 
     }
 
@@ -56,10 +66,9 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
     private void popupWindows(List<String> list) {
-        LinearLayout wheelLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.wheel_view, mainLayout, false);
+        LinearLayout wheelLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.wheel_layout, mainLayout, false);
         if (wheelLayout != null) {
-            PopupWindow mPopupWindow;
-            mPopupWindow = new PopupWindow(this);
+            final PopupWindow mPopupWindow = new PopupWindow(this);
             mPopupWindow.setContentView(wheelLayout);
             mPopupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
             mPopupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -67,7 +76,24 @@ public class MainActivity extends AppCompatActivity {
             mPopupWindow.setFocusable(true);
             mPopupWindow.setOutsideTouchable(true);
 
-            mPopupWindow.showAtLocation(mainLayout, Gravity.BOTTOM, 0, 0);
+            //对WheelView进行初始化
+            WheelView wheelView = (WheelView) wheelLayout.findViewById(R.id.wheel_view);
+
+            // TODO: 16/4/29 应将WheelView的高度设定与offset有关
+            wheelView.initData(list);
+            wheelView.setOnSelectedListener(new WheelView.OnWheelViewListener() {
+                @Override
+                public void onSelected(int selectedIndex, String item) {
+                    showSelect.setText(item);
+                }
+            });
+
+            mainLayout.post(new Runnable() {
+                @Override
+                public void run() {
+                    mPopupWindow.showAtLocation(mainLayout, Gravity.BOTTOM, 0, 0);
+                }
+            });
         }
 
     }

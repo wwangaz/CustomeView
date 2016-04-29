@@ -11,8 +11,30 @@
     tools:context=".activity.MainActivity">
 
     <com.example.wangweimin.customerview.view.AdvanceMailCompleteTextView
+        android:id="@+id/advance_mail_complete"
         android:layout_width="match_parent"
         android:layout_height="40dp" />
+
+    <Button
+        android:id="@+id/show_select_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/advance_mail_complete"
+        android:layout_centerHorizontal="true"
+        android:text="点击选择"/>
+
+    <TextView
+        android:id="@+id/show_select_tx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/advance_mail_complete"
+        android:layout_alignBaseline="@id/show_select_bt"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        tools:text="哈哈哈" />
+
+
 
     <!--<com.example.wangweimin.customerview.view.PieChart-->
     <!--android:id="@+id/pie_chart"-->
