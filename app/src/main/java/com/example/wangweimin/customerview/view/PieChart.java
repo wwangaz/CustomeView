@@ -395,7 +395,7 @@ public class PieChart extends ViewGroup {
         int currentAngle = 0;
         for (Item it : mData) {
             it.mStartAngle = currentAngle;
-            it.mEndAngle = (int) ((float) currentAngle + it.mValue + 360.0f / mTotal);
+            it.mEndAngle = (int) ((float) currentAngle + it.mValue * 360.0f / mTotal);
             currentAngle = it.mEndAngle;
 
             it.mShader = new SweepGradient(

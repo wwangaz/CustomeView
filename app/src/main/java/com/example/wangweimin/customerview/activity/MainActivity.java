@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.wangweimin.customerview.R;
+import com.example.wangweimin.customerview.view.MyPieChart;
 import com.example.wangweimin.customerview.view.WheelView;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout mainLayout;
     private TextView showSelect;
     private Button showSelectBtn;
+    private MyPieChart pieChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
         mainLayout = (RelativeLayout) findViewById(R.id.main_layout);
         showSelect = (TextView) findViewById(R.id.show_select_tx);
         showSelectBtn = (Button) findViewById(R.id.show_select_bt);
+        pieChart = (MyPieChart) findViewById(R.id.pie_chart);
+
+        for (int i = 0; i < 6; i++) {
+            pieChart.addProduct("产品" + i, 1);
+        }
 
         final List<String> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
