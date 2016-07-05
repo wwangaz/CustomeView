@@ -79,7 +79,7 @@ public class WheelView extends ScrollView {
         views.setOrientation(LinearLayout.VERTICAL);
         this.addView(views);
 
-        //处理滑动
+        //这个应该只是用来调整滑动的位置，然后得到选中项
         scrollTask = new Runnable() {
             @Override
             public void run() {
@@ -123,7 +123,8 @@ public class WheelView extends ScrollView {
                 }
             }
         };
-        this.post(scrollTask);
+
+        this.postDelayed(scrollTask, newCheck);
     }
 
     public void setOnSelectedListener(OnWheelViewListener listener) {

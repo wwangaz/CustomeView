@@ -86,6 +86,19 @@ public class MainActivity extends AppCompatActivity {
             //对WheelView进行初始化
             WheelView wheelView = (WheelView) wheelLayout.findViewById(R.id.wheel_view);
 
+            TextView cancel = (TextView) wheelLayout.findViewById(R.id.cancel_action);
+            TextView sure = (TextView) wheelLayout.findViewById(R.id.sure_action);
+
+            View.OnClickListener listener = new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mPopupWindow.dismiss();
+                }
+            };
+
+            cancel.setOnClickListener(listener);
+            sure.setOnClickListener(listener);
+
             // TODO: 16/4/29 应将WheelView的高度设定与offset有关
             wheelView.initData(list);
             wheelView.setOnSelectedListener(new WheelView.OnWheelViewListener() {
