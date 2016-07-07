@@ -12,6 +12,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -94,7 +95,7 @@ public class WheelView extends ScrollView {
 
                 if (newY == initialY) {
                     if (reminder == 0) {
-                        selectedIndex += divided;
+                        selectedIndex = divided + offset;
                         onSelectedCallBack();
                     } else {
                         if (reminder > itemHeight / 2) {
@@ -124,7 +125,13 @@ public class WheelView extends ScrollView {
             }
         };
 
-        this.postDelayed(scrollTask, newCheck);
+        this.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                post(scrollTask);
+            }
+        });
+
     }
 
     public void setOnSelectedListener(OnWheelViewListener listener) {
