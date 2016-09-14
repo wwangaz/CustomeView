@@ -80,7 +80,7 @@ public class WheelView extends ScrollView {
         views.setOrientation(LinearLayout.VERTICAL);
         this.addView(views);
 
-        //这个应该只是用来调整滑动的位置，然后得到选中项
+        //这个只是用来调整滑动的位置，然后得到选中项
         scrollTask = new Runnable() {
             @Override
             public void run() {
@@ -93,6 +93,7 @@ public class WheelView extends ScrollView {
                 final int reminder = newY % displayItemHeight;
                 final int divided = newY / displayItemHeight;
 
+                //当newY == initialY的时候,滑动停止了,再对滑动位置进行微调
                 if (newY == initialY) {
                     if (reminder == 0) {
                         selectedIndex = divided + offset;
