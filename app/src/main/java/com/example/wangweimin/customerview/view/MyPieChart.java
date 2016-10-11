@@ -174,7 +174,7 @@ public class MyPieChart extends View {
         }
     }
 
-    private float convertDp2Px(float dp) {
+    private float convertDp2Px(int dp) {
         Resources r = getResources();
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, dp, r.getDisplayMetrics());
     }
