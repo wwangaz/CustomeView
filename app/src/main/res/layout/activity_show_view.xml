@@ -7,6 +7,13 @@
         android:id="@+id/wave_progress"
         android:layout_centerInParent="true"
         android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:visibility="gone"/>
+
+    <com.example.wangweimin.customerview.view.DashboardView
+        android:id="@+id/dashboard"
+        android:layout_centerInParent="true"
+        android:layout_width="300dp"
         android:layout_height="300dp" />
 
     <Button
@@ -14,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/wave_progress"
+        android:layout_below="@id/dashboard"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

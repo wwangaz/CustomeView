@@ -1,12 +1,15 @@
 package com.example.wangweimin.customerview.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 
 import com.example.wangweimin.customerview.R;
+import com.example.wangweimin.customerview.view.DashboardView;
 import com.example.wangweimin.customerview.view.WaveProgressView;
 
 import butterknife.BindView;
@@ -21,6 +24,9 @@ public class ShowViewActivity extends AppCompatActivity {
     @BindView(R.id.wave_progress)
     public WaveProgressView waveProgressView;
 
+    @BindView(R.id.dashboard)
+    public DashboardView dashboardView;
+
     @BindView(R.id.reset)
     public Button reset;
 
@@ -34,6 +40,18 @@ public class ShowViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_view);
         ButterKnife.bind(this);
+        dashboardView.setSweepPercentage(1.0f);
+        dashboardView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                dashboardView.invalidateProgress();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    dashboardView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    dashboardView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+            }
+        });
         if (waveProgressView != null)
             waveProgressView.setPercent(0);
         reset.setOnClickListener(new View.OnClickListener() {

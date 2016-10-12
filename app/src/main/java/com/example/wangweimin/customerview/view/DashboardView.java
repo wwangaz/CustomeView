@@ -78,7 +78,7 @@ public class DashboardView extends View {
         mProgressPaint.setAntiAlias(true);
         mProgressPaint.setStyle(Paint.Style.STROKE);
         mProgressPaint.setPathEffect(dashPathEffect);
-        mBackgroundProgressPaint.setStrokeWidth(mProgressItemWidth);
+        mProgressPaint.setStrokeWidth(mProgressItemWidth);
 
     }
 
@@ -140,7 +140,7 @@ public class DashboardView extends View {
         invalidate();
     }
 
-    public float convertDp2Px(int dp) {
+    private float convertDp2Px(int dp) {
         Resources r = getResources();
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, dp, r.getDisplayMetrics());
     }
