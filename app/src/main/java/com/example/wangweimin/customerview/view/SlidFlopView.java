@@ -16,7 +16,7 @@ import com.nineoldandroids.view.ViewHelper;
  * Created by wangweimin on 16/10/14.
  */
 
-public class SlidingMenu extends HorizontalScrollView {
+public class SlidFlopView extends HorizontalScrollView {
 
     private int mScreenWidth;
 
@@ -32,15 +32,15 @@ public class SlidingMenu extends HorizontalScrollView {
 
     private boolean once;
 
-    public SlidingMenu(Context context) {
+    public SlidFlopView(Context context) {
         this(context, null, 0);
     }
 
-    public SlidingMenu(Context context, AttributeSet attrs) {
+    public SlidFlopView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SlidingMenu(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SlidFlopView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mScreenWidth = ScreenUtils.getScreenWidth(context);
 
@@ -106,7 +106,8 @@ public class SlidingMenu extends HorizontalScrollView {
         super.onScrollChanged(l, t, oldl, oldt);
         float scale = l * 1.0f / mMenuWidth;
         float leftScale = 1 - 0.3f * scale; //确定menu的大小变化为1.0-0.7
-        float rightScale = 0.8f + 0.2f * scale;//确定content的大小变化为0.8-1.0 也可以后期自己制定
+        float rightScale = 0.8f + 0.2f * scale;//确定content的大小变化为0.8-1.0
+        float rightDegree = 30.f * (l - oldl) / mMenuWidth;//确定content的旋转角度
 
         float leftAlpha = 0.6f + 0.4f * (1 - scale);
 
@@ -120,6 +121,7 @@ public class SlidingMenu extends HorizontalScrollView {
         ViewHelper.setPivotY(mContent, mContent.getHeight() / 2);
         ViewHelper.setScaleY(mContent, rightScale);
         ViewHelper.setScaleY(mContent, rightScale);
+        ScreenUtils.rotateView(mContent, rightDegree);
     }
 
     public void openMenu() {
@@ -142,4 +144,6 @@ public class SlidingMenu extends HorizontalScrollView {
         else
             openMenu();
     }
+
+
 }
