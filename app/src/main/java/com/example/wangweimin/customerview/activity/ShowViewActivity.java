@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.example.wangweimin.customerview.R;
 import com.example.wangweimin.customerview.view.DashboardView;
+import com.example.wangweimin.customerview.view.SlidingMenu;
 import com.example.wangweimin.customerview.view.WaveProgressView;
 
 import butterknife.BindView;
@@ -26,6 +27,9 @@ public class ShowViewActivity extends AppCompatActivity {
 
     @BindView(R.id.dashboard)
     public DashboardView dashboardView;
+
+    @BindView(R.id.sliding_menu)
+    SlidingMenu slidingMenu;
 
     @BindView(R.id.reset)
     public Button reset;

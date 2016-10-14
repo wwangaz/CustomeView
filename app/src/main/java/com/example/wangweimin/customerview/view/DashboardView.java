@@ -1,7 +1,6 @@
 package com.example.wangweimin.customerview.view;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
@@ -10,10 +9,9 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.SweepGradient;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
 
-import com.example.wangweimin.customerview.ViewUtils;
+import com.example.wangweimin.customerview.ScreenUtils;
 
 /**
  * Created by wangweimin on 16/10/11.
@@ -25,7 +23,7 @@ public class DashboardView extends View {
 
     private static final int[] DEFAULT_PROGRESS_COLORS = {Color.YELLOW, Color.BLUE, Color.RED, Color.TRANSPARENT};
 
-    private int DEFAULT_PROGRESS_ITEM_WIDTH = (int) ViewUtils.convertDp2Px(6);
+    private int DEFAULT_PROGRESS_ITEM_WIDTH = (int) ScreenUtils.convertDp2Px(6);
 
     private static final int DEFAULT_START_ANGLE = -240;
 
@@ -67,7 +65,7 @@ public class DashboardView extends View {
 
         mProgressRectangle = new RectF();
 
-        DashPathEffect dashPathEffect = new DashPathEffect(new float[]{ViewUtils.convertDp2Px(3), ViewUtils.convertDp2Px(6)}, 0);
+        DashPathEffect dashPathEffect = new DashPathEffect(new float[]{ScreenUtils.convertDp2Px(3), ScreenUtils.convertDp2Px(6)}, 0);
 
         mBackgroundProgressPaint = new Paint();
         mBackgroundProgressPaint.setAntiAlias(true);

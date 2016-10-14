@@ -1,27 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <com.example.wangweimin.customerview.view.WaveProgressView
-        android:id="@+id/wave_progress"
-        android:layout_centerInParent="true"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:visibility="gone"/>
+    <com.example.wangweimin.customerview.view.SlidingMenu
+        android:id="@+id/sliding_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rightPadding="30dp">
 
-    <com.example.wangweimin.customerview.view.DashboardView
-        android:id="@+id/dashboard"
-        android:layout_centerInParent="true"
-        android:layout_width="300dp"
-        android:layout_height="300dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/dashboard"
-        android:layout_centerHorizontal="true"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bluegrass">
+
+                <com.example.wangweimin.customerview.view.WaveProgressView
+                    android:id="@+id/wave_progress"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="visible" />
+
+                <Button
+                    android:id="@+id/reset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/wave_progress"
+                    android:layout_centerHorizontal="true"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/chartreuse">
+
+                <com.example.wangweimin.customerview.view.DashboardView
+                    android:id="@+id/dashboard"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_centerInParent="true" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </com.example.wangweimin.customerview.view.SlidingMenu>
 
 </RelativeLayout>

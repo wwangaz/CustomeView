@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.wangweimin.customerview.ViewUtils;
+import com.example.wangweimin.customerview.ScreenUtils;
 
 /**
  * Created by wangweimin on 16/10/14.
@@ -14,7 +14,7 @@ import com.example.wangweimin.customerview.ViewUtils;
 public class WrapLayout extends ViewGroup {
     private final static String TAG = "WrapLayout";
 
-    private final static int VIEW_MARGIN = ViewUtils.convertDp2Px(5);
+    private final static int VIEW_MARGIN = ScreenUtils.convertDp2Px(5);
 
     public WrapLayout(Context context) {
         super(context);
