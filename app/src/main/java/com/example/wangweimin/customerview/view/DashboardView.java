@@ -13,6 +13,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.example.wangweimin.customerview.ViewUtils;
+
 /**
  * Created by wangweimin on 16/10/11.
  */
@@ -23,7 +25,7 @@ public class DashboardView extends View {
 
     private static final int[] DEFAULT_PROGRESS_COLORS = {Color.YELLOW, Color.BLUE, Color.RED, Color.TRANSPARENT};
 
-    private int DEFAULT_PROGRESS_ITEM_WIDTH = (int) convertDp2Px(6);
+    private int DEFAULT_PROGRESS_ITEM_WIDTH = (int) ViewUtils.convertDp2Px(6);
 
     private static final int DEFAULT_START_ANGLE = -240;
 
@@ -65,7 +67,7 @@ public class DashboardView extends View {
 
         mProgressRectangle = new RectF();
 
-        DashPathEffect dashPathEffect = new DashPathEffect(new float[]{convertDp2Px(3), convertDp2Px(6)}, 0);
+        DashPathEffect dashPathEffect = new DashPathEffect(new float[]{ViewUtils.convertDp2Px(3), ViewUtils.convertDp2Px(6)}, 0);
 
         mBackgroundProgressPaint = new Paint();
         mBackgroundProgressPaint.setAntiAlias(true);
@@ -139,10 +141,4 @@ public class DashboardView extends View {
         mProgressPaint.setShader(sweepGradient);
         invalidate();
     }
-
-    private float convertDp2Px(int dp) {
-        Resources r = getResources();
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, dp, r.getDisplayMetrics());
-    }
-
 }
