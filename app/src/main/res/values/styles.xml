@@ -11,4 +11,14 @@
     <declare-styleable name="SlidingMenu">
         <attr name="rightPadding" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="BaseGridLayout">
+        <attr name="column_count" format="integer"/>
+        <attr name="horizontal_space" format="dimension"/>
+        <attr name="vertical_space" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ListRecyclerView">
+        <attr name="recycler_divider" format="reference"/>
+    </declare-styleable>
 </resources>

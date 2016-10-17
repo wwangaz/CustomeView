@@ -14,6 +14,7 @@ import com.nineoldandroids.view.ViewHelper;
 
 /**
  * Created by wangweimin on 16/10/14.
+ * 自定义的视图翻转菜单View
  */
 
 public class SlidFlopView extends HorizontalScrollView {

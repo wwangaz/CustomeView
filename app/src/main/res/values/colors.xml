@@ -14,4 +14,6 @@
     <color name="black">#ff000000</color>
     <color name="grey">#33000000</color>
     <color name="text_gray">#ff808080</color>
+
+    <color name="light_desc_text_color">#999999</color>
 </resources>
