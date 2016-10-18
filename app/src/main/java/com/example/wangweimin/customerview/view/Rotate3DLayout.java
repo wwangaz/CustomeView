@@ -276,16 +276,17 @@ public class Rotate3DLayout extends RelativeLayout implements View.OnTouchListen
                 recycleVelocityTracker();
                 break;
         }
-        if (v.isEnabled()) {
-            if (isSliding) {
-                unFocusBindView();
-                return true;
-            }
-            if (isLeftLayoutVisible) {
-                return true;
-            }
-            return false;
-        }
+        //这里为什么要做判断?是要解决滑动冲突吗?
+//        if (v.isEnabled()) {
+//            if (isSliding) {
+//                unFocusBindView();
+//                return true;
+//            }
+//            if (isLeftLayoutVisible) {
+//                return true;
+//            }
+//            return false;
+//        }
         return true;
     }
 
