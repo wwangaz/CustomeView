@@ -78,8 +78,8 @@ public class SlidFlopLayout extends HorizontalScrollView {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
+        this.scrollTo(mMenuWidth, 0);
         if (changed) {
-            this.scrollTo(mMenuWidth, 0);
             once = true;
         }
     }
@@ -107,7 +107,7 @@ public class SlidFlopLayout extends HorizontalScrollView {
         super.onScrollChanged(l, t, oldl, oldt);
         float scale = l * 1.0f / mMenuWidth;
         float leftScale = 1 - 0.3f * scale; //确定menu的大小变化为1.0-0.7
-        float rightScale = 0.8f + 0.2f * scale;//确定content的大小变化为0.8-1.0 也可以后期自己制定
+        float rightScale = 0.6f + 0.4f * scale;//确定content的大小变化为0.8-1.0 也可以后期自己制定
 
         float leftAlpha = 0.6f + 0.4f * (1 - scale);
 
@@ -119,7 +119,7 @@ public class SlidFlopLayout extends HorizontalScrollView {
         ViewHelper.setAlpha(mMenu, leftAlpha);
         ViewHelper.setTranslationX(mMenu, mMenuWidth * scale * 0.6f); //差速效果
 
-        ViewHelper.setPivotX(mContent, 0);
+        ViewHelper.setPivotX(mContent, 300);
         ViewHelper.setPivotY(mContent, mContent.getHeight() / 2);
         ViewHelper.setScaleY(mContent, rightScale);
         ViewHelper.setScaleY(mContent, rightScale);
