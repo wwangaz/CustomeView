@@ -58,6 +58,7 @@ public class PromoteBottomSheetDialogView<T> {
         View parentView = (View) view.getParent();
         BottomSheetBehavior behavior = BottomSheetBehavior.from(parentView);
 
+        //至少显示600
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams.height < MEDIATE_HEIGHT) {
             layoutParams.height = MEDIATE_HEIGHT;

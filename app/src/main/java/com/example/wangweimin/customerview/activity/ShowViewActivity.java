@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.example.wangweimin.customerview.R;
 import com.example.wangweimin.customerview.view.DashboardView;
+import com.example.wangweimin.customerview.view.SlidFlopView;
 import com.example.wangweimin.customerview.view.SlidingMenu;
 import com.example.wangweimin.customerview.view.WaveProgressView;
 

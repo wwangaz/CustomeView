@@ -24,7 +24,7 @@ public class SlidFlopView extends HorizontalScrollView {
     private int mMenuRightPadding;
 
     private int mMenuWidth;
-    private int mOneThirdMenuWidth;
+    private int mHalfMenuWidth;
 
     private ViewGroup mMenu;
     private ViewGroup mContent;
@@ -67,7 +67,7 @@ public class SlidFlopView extends HorizontalScrollView {
             mContent = (ViewGroup) wrapper.getChildAt(1);
 
             mMenuWidth = mScreenWidth - mMenuRightPadding;
-            mOneThirdMenuWidth = mMenuWidth / 3;
+            mHalfMenuWidth = mMenuWidth / 2;
             mMenu.getLayoutParams().width = mMenuWidth;
             mContent.getLayoutParams().width = mScreenWidth;
         }
@@ -90,7 +90,7 @@ public class SlidFlopView extends HorizontalScrollView {
         switch (action) {
             case MotionEvent.ACTION_UP:
                 int scrollx = getScrollX();
-                if (scrollx > mOneThirdMenuWidth) {
+                if (scrollx > mHalfMenuWidth) {
                     this.smoothScrollTo(mMenuWidth, 0);
                     isOpen = false;
                 } else {
@@ -107,10 +107,11 @@ public class SlidFlopView extends HorizontalScrollView {
         super.onScrollChanged(l, t, oldl, oldt);
         float scale = l * 1.0f / mMenuWidth;
         float leftScale = 1 - 0.3f * scale; //确定menu的大小变化为1.0-0.7
-        float rightScale = 0.8f + 0.2f * scale;//确定content的大小变化为0.8-1.0
-        float rightDegree = 30.f * (l - oldl) / mMenuWidth;//确定content的旋转角度
+        float rightScale = 0.8f + 0.2f * scale;//确定content的大小变化为0.8-1.0 也可以后期自己制定
 
         float leftAlpha = 0.6f + 0.4f * (1 - scale);
+
+        float rightDegree = (1 - scale) * 30;
 
         //这里为什么不设置pivot呢
         ViewHelper.setScaleX(mMenu, leftScale);
@@ -122,7 +123,7 @@ public class SlidFlopView extends HorizontalScrollView {
         ViewHelper.setPivotY(mContent, mContent.getHeight() / 2);
         ViewHelper.setScaleY(mContent, rightScale);
         ViewHelper.setScaleY(mContent, rightScale);
-        ScreenUtils.rotateView(mContent, rightDegree);
+        ViewHelper.setRotationY(mContent, -rightDegree);
     }
 
     public void openMenu() {
@@ -145,6 +146,5 @@ public class SlidFlopView extends HorizontalScrollView {
         else
             openMenu();
     }
-
-
 }
+
