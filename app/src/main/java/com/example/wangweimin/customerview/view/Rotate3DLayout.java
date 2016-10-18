@@ -1,4 +1,4 @@
-package com.example.wangweimin.customerview.view.InteractiveChart;
+package com.example.wangweimin.customerview.view;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -12,7 +12,6 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 import com.example.wangweimin.customerview.R;
-import com.example.wangweimin.customerview.view.Image3DView;
 
 /**
  * Created by wangweimin on 16/10/18.

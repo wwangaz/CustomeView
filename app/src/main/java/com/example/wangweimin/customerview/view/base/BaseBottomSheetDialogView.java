@@ -1,4 +1,4 @@
-package com.example.wangweimin.customerview.view;
+package com.example.wangweimin.customerview.view.base;
 
 import android.app.Activity;
 import android.support.design.widget.BottomSheetBehavior;
@@ -17,13 +17,13 @@ import java.util.List;
 /**
  * Created by wangweimin on 16/5/11.
  */
-public class PromoteBottomSheetDialogView<T> {
+public class BaseBottomSheetDialogView<T> {
 
     final private int MEDIATE_HEIGHT = 600;
 
     private BaseRecyclerListAdapter mAdapter;
 
-    public PromoteBottomSheetDialogView(final Activity activity, List<T> list) {
+    public BaseBottomSheetDialogView(final Activity activity, List<T> list) {
 
         final BottomSheetDialog dialog = new BottomSheetDialog(activity);
         final View view = LayoutInflater.from(activity).inflate(getBottomViewId(), null);

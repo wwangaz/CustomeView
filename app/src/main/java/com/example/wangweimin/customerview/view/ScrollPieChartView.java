@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Created by wangweimin on 15/12/9.
  */
-public class PieChart extends ViewGroup {
+public class ScrollPieChartView extends ViewGroup {
     List<Item> mData = new ArrayList<>();
 
     private float mTotal = 0.0f;
@@ -84,34 +84,34 @@ public class PieChart extends ViewGroup {
     public static final int AUTOCENTER_ANIM_DURATION = 250;
 
     public interface OnCurrentItemChangedListener {
-        void OnCurrentItemChanged(PieChart source, int currentItem);
+        void OnCurrentItemChanged(ScrollPieChartView source, int currentItem);
     }
 
-    public PieChart(Context context) {
+    public ScrollPieChartView(Context context) {
         super(context);
         init();
     }
 
-    public PieChart(Context context, AttributeSet attrs) {
+    public ScrollPieChartView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
-                R.styleable.PieChart,
+                R.styleable.ScrollPieChartView,
                 0, 0
         );
 
         try {
-            mShowText = a.getBoolean(R.styleable.PieChart_pieShowText, false);
-            mTextY = a.getDimension(R.styleable.PieChart_labelY, 0.0f);
-            mTextWidth = a.getDimension(R.styleable.PieChart_labelWidth, 0.0f);
-            mTextHeight = a.getDimension(R.styleable.PieChart_labelHeight, 0.0f);
-            mTextPos = a.getInteger(R.styleable.PieChart_labelPosition, 0);
-            mTextColor = a.getColor(R.styleable.PieChart_labelColor, 0xff000000);
-            mHighlightStrength = a.getFloat(R.styleable.PieChart_highlightStrength, 1.0f);
-            mPieRotation = a.getInteger(R.styleable.PieChart_pieRotation, 0);
-            mPointerRadius = a.getDimension(R.styleable.PieChart_pointerRadius, 2.0f);
-            mAutoCenterInSlice = a.getBoolean(R.styleable.PieChart_autoCenterPointerInSlice, false);
+            mShowText = a.getBoolean(R.styleable.ScrollPieChartView_pieShowText, false);
+            mTextY = a.getDimension(R.styleable.ScrollPieChartView_labelY, 0.0f);
+            mTextWidth = a.getDimension(R.styleable.ScrollPieChartView_labelWidth, 0.0f);
+            mTextHeight = a.getDimension(R.styleable.ScrollPieChartView_labelHeight, 0.0f);
+            mTextPos = a.getInteger(R.styleable.ScrollPieChartView_labelPosition, 0);
+            mTextColor = a.getColor(R.styleable.ScrollPieChartView_labelColor, 0xff000000);
+            mHighlightStrength = a.getFloat(R.styleable.ScrollPieChartView_highlightStrength, 1.0f);
+            mPieRotation = a.getInteger(R.styleable.ScrollPieChartView_pieRotation, 0);
+            mPointerRadius = a.getDimension(R.styleable.ScrollPieChartView_pointerRadius, 2.0f);
+            mAutoCenterInSlice = a.getBoolean(R.styleable.ScrollPieChartView_autoCenterPointerInSlice, false);
         } finally {
             a.recycle();
         }
@@ -446,7 +446,7 @@ public class PieChart extends ViewGroup {
         addView(mPointerView);
 
         if (Build.VERSION.SDK_INT >= 11) {
-            mAutoCenterAnimator = ObjectAnimator.ofInt(PieChart.this, "PieRotation", 0);
+            mAutoCenterAnimator = ObjectAnimator.ofInt(ScrollPieChartView.this, "PieRotation", 0);
 
             mAutoCenterAnimator.addListener(new Animator.AnimatorListener() {
                 @Override
@@ -487,7 +487,7 @@ public class PieChart extends ViewGroup {
             });
         }
 
-        mDetector = new GestureDetector(PieChart.this.getContext(), new GestureListener());
+        mDetector = new GestureDetector(ScrollPieChartView.this.getContext(), new GestureListener());
 
         mDetector.setIsLongpressEnabled(false);
 

@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by wangweimin on 16/5/24.
  */
-public class MyPieChart extends View {
+public class PieChartView extends View {
     List<Product> mData = new ArrayList<>();
 
     int[] mColors = new int[]{0xff1945aa, 0xff3b69d9, 0xff51c970, 0xffe5e71c, 0xffe7801c, 0xfff74c44};
@@ -40,21 +40,21 @@ public class MyPieChart extends View {
     private float mTabHeight;
     private double mTotal;
 
-    public MyPieChart(Context context) {
+    public PieChartView(Context context) {
         super(context);
         init();
     }
 
-    public MyPieChart(Context context, AttributeSet attrs) {
+    public PieChartView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.MyPieChart, 0, 0);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.PieChartView, 0, 0);
 
         try {
-            mTextColor = a.getColor(R.styleable.MyPieChart_textColor, 0xff00000);
-            mTextSize = a.getDimensionPixelSize(R.styleable.MyPieChart_textSize, 14);
-            mPieRadius = a.getDimension(R.styleable.MyPieChart_pieRadius, 50);
-            mDotRadius = a.getDimension(R.styleable.MyPieChart_dotRadius, 5);
+            mTextColor = a.getColor(R.styleable.PieChartView_textColor, 0xff00000);
+            mTextSize = a.getDimensionPixelSize(R.styleable.PieChartView_textSize, 14);
+            mPieRadius = a.getDimension(R.styleable.PieChartView_pieRadius, 50);
+            mDotRadius = a.getDimension(R.styleable.PieChartView_dotRadius, 5);
         } finally {
             a.recycle();
         }

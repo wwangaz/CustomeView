@@ -1,4 +1,4 @@
-<com.example.wangweimin.customerview.view.SlidFlopView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.wangweimin.customerview.view.Rotate3DLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/slidingLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
@@ -62,4 +62,4 @@
         android:layout_alignParentLeft="true"
         android:visibility="invisible" />
 
-</com.example.wangweimin.customerview.view.SlidFlopView>
+</com.example.wangweimin.customerview.view.Rotate3DLayout>

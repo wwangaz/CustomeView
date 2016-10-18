@@ -1,4 +1,4 @@
-package com.example.wangweimin.customerview.view;
+package com.example.wangweimin.customerview.view.base;
 
 import android.content.Context;
 import android.content.res.TypedArray;

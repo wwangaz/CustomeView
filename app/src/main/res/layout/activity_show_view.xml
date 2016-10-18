@@ -6,7 +6,7 @@
     android:background="@color/seafoam"
     android:orientation="vertical">
 
-    <com.example.wangweimin.customerview.view.SlidingMenu
+    <com.example.wangweimin.customerview.view.SlidingMenuLayout
         android:id="@+id/sliding_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,6 +52,6 @@
 
         </LinearLayout>
 
-    </com.example.wangweimin.customerview.view.SlidingMenu>
+    </com.example.wangweimin.customerview.view.SlidingMenuLayout>
 
 </RelativeLayout>

@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.wangweimin.customerview.R;
-import com.example.wangweimin.customerview.view.SlidFlopView;
+import com.example.wangweimin.customerview.view.Rotate3DLayout;
 
 /**
  * Created by wangweimin on 16/10/17.
@@ -21,7 +21,7 @@ public class ShowActivity extends Activity {
     /**
      * 侧滑布局对象，用于通过手指滑动将左侧的菜单布局进行显示或隐藏。
      */
-    private SlidFlopView slidingLayout;
+    private Rotate3DLayout slidingLayout;
 
     /**
      * menu按钮，点击按钮展示左侧布局，再点击一次隐藏左侧布局。
@@ -51,7 +51,7 @@ public class ShowActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show);
-        slidingLayout = (SlidFlopView) findViewById(R.id.slidingLayout);
+        slidingLayout = (Rotate3DLayout) findViewById(R.id.slidingLayout);
         menuButton = (Button) findViewById(R.id.menuButton);
         contentListView = (ListView) findViewById(R.id.contentList);
         contentListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,

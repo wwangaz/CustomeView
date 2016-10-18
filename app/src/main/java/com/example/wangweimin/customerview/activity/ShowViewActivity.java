@@ -10,8 +10,7 @@ import android.widget.Button;
 
 import com.example.wangweimin.customerview.R;
 import com.example.wangweimin.customerview.view.DashboardView;
-import com.example.wangweimin.customerview.view.SlidFlopView;
-import com.example.wangweimin.customerview.view.SlidingMenu;
+import com.example.wangweimin.customerview.view.SlidingMenuLayout;
 import com.example.wangweimin.customerview.view.WaveProgressView;
 
 import butterknife.BindView;
@@ -30,7 +29,7 @@ public class ShowViewActivity extends AppCompatActivity {
     public DashboardView dashboardView;
 
     @BindView(R.id.sliding_menu)
-    SlidingMenu slidingMenu;
+    SlidingMenuLayout slidingMenuLayout;
 
     @BindView(R.id.reset)
     public Button reset;

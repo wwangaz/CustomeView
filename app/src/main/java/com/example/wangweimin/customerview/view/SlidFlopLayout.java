@@ -14,16 +14,17 @@ import com.nineoldandroids.view.ViewHelper;
 
 /**
  * Created by wangweimin on 16/10/14.
+ * 自定义的视图翻转菜单View
  */
 
-public class SlidingMenu extends HorizontalScrollView {
+public class SlidFlopLayout extends HorizontalScrollView {
 
     private int mScreenWidth;
 
     private int mMenuRightPadding;
 
     private int mMenuWidth;
-    private int mOneThirdMenuWidth;
+    private int mHalfMenuWidth;
 
     private ViewGroup mMenu;
     private ViewGroup mContent;
@@ -32,25 +33,25 @@ public class SlidingMenu extends HorizontalScrollView {
 
     private boolean once;
 
-    public SlidingMenu(Context context) {
+    public SlidFlopLayout(Context context) {
         this(context, null, 0);
     }
 
-    public SlidingMenu(Context context, AttributeSet attrs) {
+    public SlidFlopLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SlidingMenu(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SlidFlopLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mScreenWidth = ScreenUtils.getScreenWidth(context);
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.SlidingMenu, defStyleAttr, 0);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.SlidingMenuLayout, defStyleAttr, 0);
 
         int n = a.getIndexCount();
         for (int i = 0; i < n; i++) {
             int attr = a.getIndex(i);
             switch (attr) {
-                case R.styleable.SlidingMenu_rightPadding:
+                case R.styleable.SlidingMenuLayout_rightPadding:
                     mMenuRightPadding = a.getDimensionPixelOffset(attr, ScreenUtils.convertDp2Px(50f));
                     break;
             }
@@ -66,7 +67,7 @@ public class SlidingMenu extends HorizontalScrollView {
             mContent = (ViewGroup) wrapper.getChildAt(1);
 
             mMenuWidth = mScreenWidth - mMenuRightPadding;
-            mOneThirdMenuWidth = mMenuWidth / 3;
+            mHalfMenuWidth = mMenuWidth / 2;
             mMenu.getLayoutParams().width = mMenuWidth;
             mContent.getLayoutParams().width = mScreenWidth;
         }
@@ -89,7 +90,7 @@ public class SlidingMenu extends HorizontalScrollView {
         switch (action) {
             case MotionEvent.ACTION_UP:
                 int scrollx = getScrollX();
-                if (scrollx > mOneThirdMenuWidth) {
+                if (scrollx > mHalfMenuWidth) {
                     this.smoothScrollTo(mMenuWidth, 0);
                     isOpen = false;
                 } else {
@@ -110,6 +111,8 @@ public class SlidingMenu extends HorizontalScrollView {
 
         float leftAlpha = 0.6f + 0.4f * (1 - scale);
 
+        float rightDegree = (1 - scale) * 30;
+
         //这里为什么不设置pivot呢
         ViewHelper.setScaleX(mMenu, leftScale);
         ViewHelper.setScaleY(mMenu, leftScale);
@@ -120,6 +123,7 @@ public class SlidingMenu extends HorizontalScrollView {
         ViewHelper.setPivotY(mContent, mContent.getHeight() / 2);
         ViewHelper.setScaleY(mContent, rightScale);
         ViewHelper.setScaleY(mContent, rightScale);
+        ViewHelper.setRotationY(mContent, -rightDegree);
     }
 
     public void openMenu() {
@@ -143,3 +147,4 @@ public class SlidingMenu extends HorizontalScrollView {
             openMenu();
     }
 }
+

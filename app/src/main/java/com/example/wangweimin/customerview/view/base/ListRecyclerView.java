@@ -1,4 +1,4 @@
-package com.example.wangweimin.customerview.view;
+package com.example.wangweimin.customerview.view.base;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,6 +12,7 @@ import android.widget.AbsListView;
 
 import com.example.wangweimin.customerview.R;
 import com.example.wangweimin.customerview.adapter.BaseRecyclerListAdapter;
+import com.example.wangweimin.customerview.view.DividerItemDecoration;
 
 /**
  * Created by wangweimin on 16/10/17.
