@@ -22,8 +22,6 @@ public class Image3DView extends View {
 
     private float rotateDegree;
 
-    private float scale;
-
     private Matrix matrix = new Matrix();
 
     private Camera camera = new Camera();
@@ -53,7 +51,7 @@ public class Image3DView extends View {
         if (sourceBitmap == null)
             getSourceBitmap();
 
-        float degree = scale * rotateDegree;
+        float degree = (1 - getWidth() / sourceWidth) * rotateDegree;
 
         camera.save();
         camera.rotateY(degree);

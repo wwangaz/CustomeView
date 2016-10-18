@@ -212,7 +212,7 @@ public class Rotate3DLayout extends RelativeLayout implements View.OnTouchListen
             image3dView = (Image3DView) findViewById(R.id.image_3d_view);
             // 将左侧布局传入3D视图中作为生成源
             image3dView.setSourceView(leftLayout);
-            image3dView.setDegree(20);
+            image3dView.setDegree(90);
             loadOnce = true;
         }
     }
