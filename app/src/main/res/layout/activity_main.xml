@@ -38,17 +38,6 @@
         tools:text="哈哈哈"
         android:visibility="visible"/>
 
-    <com.example.wangweimin.customerview.view.PieChartView
-        android:id="@+id/pie_chart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:dotRadius="5dp"
-        app:pieRadius="70dp"
-        app:textColor="@color/text_gray"
-        app:textSize="12sp"
-        android:visibility="gone">
-    </com.example.wangweimin.customerview.view.PieChartView>
-
 
 
     <!--<com.example.wangweimin.customerview.view.PieChart-->

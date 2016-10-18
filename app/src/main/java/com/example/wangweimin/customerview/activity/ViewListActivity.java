@@ -26,6 +26,7 @@ public class ViewListActivity extends AppCompatActivity {
     private final static String SLIDING_MENU_LAYOUT = "SlidingMenuLayout";
     private final static String SLID_FLOP_LAYOUT = "SlidFlopLayout";
     private final static String ROTATE_3D_LAYOUT = "Rotate3DLayout";
+    private final static String AUTO_COMPLETE_VIEW = "AutoCompleteView";
     private final static String PIE_CHART_VIEW = "PieChartView";
     private final static String WAVE_PROGRESS_VIEW = "WaveProgressView";
     private final static String DASHBOARD_VIEW = "DashboardView";
@@ -48,6 +49,7 @@ public class ViewListActivity extends AppCompatActivity {
         views.add(new CustomView(SLIDING_MENU_LAYOUT));
         views.add(new CustomView(SLID_FLOP_LAYOUT));
         views.add(new CustomView(ROTATE_3D_LAYOUT));
+        views.add(new CustomView(AUTO_COMPLETE_VIEW));
         views.add(new CustomView(PIE_CHART_VIEW));
         views.add(new CustomView(WAVE_PROGRESS_VIEW));
         views.add(new CustomView(DASHBOARD_VIEW));
@@ -55,7 +57,7 @@ public class ViewListActivity extends AppCompatActivity {
         ItemChangedListener<CustomView> listener = new ItemChangedListener<CustomView>() {
             @Override
             public void itemChanged(int position, CustomView item) {
-                switch (item.name){
+                switch (item.name) {
                     case SLIDING_MENU_LAYOUT:
                         startActivity(new Intent(mContext, ShowViewActivity.class));
                         break;
@@ -65,8 +67,15 @@ public class ViewListActivity extends AppCompatActivity {
                     case ROTATE_3D_LAYOUT:
                         startActivity(new Intent(mContext, ShowActivity.class));
                         break;
-                    case PIE_CHART_VIEW:
+                    case AUTO_COMPLETE_VIEW:
                         startActivity(new Intent(mContext, MainActivity.class));
+                        break;
+                    case PIE_CHART_VIEW:
+                        startActivity(new Intent(mContext, PieChartActivity.class));
+                        break;
+                    case DASHBOARD_VIEW:
+                        break;
+                    case WAVE_PROGRESS_VIEW:
                         break;
                 }
             }

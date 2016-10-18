@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout mainLayout;
     private TextView showSelect;
     private Button showSelectBtn;
-    private PieChartView pieChart;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +34,6 @@ public class MainActivity extends AppCompatActivity {
         mainLayout = (RelativeLayout) findViewById(R.id.main_layout);
         showSelect = (TextView) findViewById(R.id.show_select_tx);
         showSelectBtn = (Button) findViewById(R.id.show_select_bt);
-        pieChart = (PieChartView) findViewById(R.id.pie_chart);
-
-        for (int i = 0; i < 6; i++) {
-            pieChart.addProduct("产品" + i, 1);
-        }
 
         final List<String> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
