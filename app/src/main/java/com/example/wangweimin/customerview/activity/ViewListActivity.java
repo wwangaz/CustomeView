@@ -19,6 +19,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by wangweimin on 16/10/18.
+ * 用于展示自定义View的主页
  */
 
 public class ViewListActivity extends AppCompatActivity {

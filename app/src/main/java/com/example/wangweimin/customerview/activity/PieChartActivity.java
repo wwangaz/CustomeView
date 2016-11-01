@@ -12,6 +12,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by wangweimin on 16/10/18.
+ * 饼状图
  */
 
 public class PieChartActivity extends AppCompatActivity {

@@ -9,6 +9,8 @@ import com.example.wangweimin.customerview.ScreenUtils;
 
 /**
  * Created by wangweimin on 16/10/14.
+ * 自动换行布局
+ * wrapLayout时测量有问题,需置于parentView中
  */
 
 public class WrapLayout extends ViewGroup {
