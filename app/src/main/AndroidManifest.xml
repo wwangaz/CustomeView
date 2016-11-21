@@ -36,6 +36,9 @@
         <activity
             android:name=".activity.PieChartActivity"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".activity.RotateMenuActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

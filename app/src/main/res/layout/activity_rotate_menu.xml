@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/btn_top"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/round_bg"
+        android:gravity="center"
+        android:text="新建\n任务"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/btn_middle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/round_bg"
+        android:gravity="center"
+        android:text="外勤\n签到"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/btn_bottom"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/round_bg"
+        android:gravity="center"
+        android:text="新建\n日报"
+        android:textColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/menu_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/round_green_bg" />
+</RelativeLayout>

@@ -31,6 +31,7 @@ public class ViewListActivity extends AppCompatActivity {
     private final static String PIE_CHART_VIEW = "PieChartView";
     private final static String WAVE_PROGRESS_VIEW = "WaveProgressView";
     private final static String DASHBOARD_VIEW = "DashboardView";
+    private final static String ROTATE_MENU_VIEW = "RotateMenuView";
 
     private Context mContext;
 
@@ -54,6 +55,7 @@ public class ViewListActivity extends AppCompatActivity {
         views.add(new CustomView(PIE_CHART_VIEW));
         views.add(new CustomView(WAVE_PROGRESS_VIEW));
         views.add(new CustomView(DASHBOARD_VIEW));
+        views.add(new CustomView(ROTATE_MENU_VIEW));
 
         ItemChangedListener<CustomView> listener = new ItemChangedListener<CustomView>() {
             @Override
@@ -73,6 +75,9 @@ public class ViewListActivity extends AppCompatActivity {
                         break;
                     case PIE_CHART_VIEW:
                         startActivity(new Intent(mContext, PieChartActivity.class));
+                        break;
+                    case ROTATE_MENU_VIEW:
+                        startActivity(new Intent(mContext, RotateMenuActivity.class));
                         break;
                     case DASHBOARD_VIEW:
                         break;
