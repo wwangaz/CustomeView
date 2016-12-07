@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wangweimin.customerview">
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -9,7 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ViewListActivity">
+        <activity android:name=".activity.HackDialogServiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,6 +41,9 @@
 
         <activity android:name=".activity.RotateMenuActivity"
             android:screenOrientation="portrait" />
+
+        <service android:name=".service.HackDialogService"
+            />
     </application>
 
 </manifest>
