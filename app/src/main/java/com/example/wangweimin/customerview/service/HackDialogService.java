@@ -80,9 +80,11 @@ public class HackDialogService extends Service {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
             return appName.equals(getTopActivityBeforeL());
         else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1)
-            return appName.equals(getRunningAppProcess());
+            return appName.equals(getTopActivityAfterLM());
         else
             return appName.equals(getTopActivityBeforeLMAfterL());
+
+        // TODO: 16/12/12 can use terminal tool to get running process
     }
 
     private String getTopActivityBeforeL() {
@@ -96,8 +98,8 @@ public class HackDialogService extends Service {
         try {
             UsageStatsManager usageStatsManager = (UsageStatsManager) getSystemService(USAGE_STATS_SERVICE);
             long millisecond = 60 * 1000;
-            Date date = new Date();
-            List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, date.getTime() - millisecond, date.getTime());
+            long date = System.currentTimeMillis();
+            List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, date - millisecond, date);
             if (queryUsageStats.size() <= 0)
                 return null;
 
@@ -117,6 +119,7 @@ public class HackDialogService extends Service {
         return "";
     }
 
+    // 16/12/12 only get the running service
     private String getRunningAppProcess(){
         Hashtable<String, List<ActivityManager.RunningServiceInfo>> hashtable = new Hashtable<>();
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
