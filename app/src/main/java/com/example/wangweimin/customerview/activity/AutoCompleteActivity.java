@@ -2,6 +2,7 @@ package com.example.wangweimin.customerview.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +14,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.wangweimin.customerview.R;
-import com.example.wangweimin.customerview.view.PieChartView;
 import com.example.wangweimin.customerview.view.WheelView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class AutoCompleteActivity extends AppCompatActivity {
+
+    private final static String TAG = AutoCompleteActivity.class.getSimpleName();
 
     private RelativeLayout mainLayout;
     private TextView showSelect;
@@ -47,25 +49,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-
-//        Resources res = getResources();
-
-//        final PieChart pie = (PieChart) findViewById(R.id.pie_chart);
-//        pie.setShowText(true);
-//        pie.addItem("Agamemnon", 2f, res.getColor(R.color.seafoam));
-//        pie.addItem("Bocephus", 3.5f, res.getColor(R.color.chartreuse));
-//        pie.addItem("Calliope", 2.5f, res.getColor(R.color.emerald));
-//        pie.addItem("Daedalus", 10f, res.getColor(R.color.bluegrass));
-//        pie.addItem("Euripides", 1f, res.getColor(R.color.turquoise));
-//        pie.addItem("Ganymede", 3f, res.getColor(R.color.slate));
-//
-//        (findViewById(R.id.reset)).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                pie.setCurrentItem(0);
-//            }
-//        });
 
     private void popupWindows(List<String> list) {
         LinearLayout wheelLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.wheel_layout, mainLayout, false);
@@ -111,6 +94,18 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume");
     }
 
 }

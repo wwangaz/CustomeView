@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wangweimin.customerview">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".App"
@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.HackDialogServiceActivity">
+        <activity android:name=".activity.ViewListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,18 +32,23 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.AutoCompleteActivity"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".activity.PieChartActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.RotateMenuActivity"
+        <activity
+            android:name=".activity.RotateMenuActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name=".service.HackDialogService"
-            />
+        <activity
+            android:name=".activity.HackDialogServiceActivity"
+            android:screenOrientation="portrait" />
+
+
+        <service android:name=".service.HackDialogService" />
     </application>
 
 </manifest>
