@@ -19,6 +19,22 @@
             </intent-filter>
         </activity>
 
+        <activity-alias
+            android:name=".Test"
+            android:enabled="false"
+            android:icon="@mipmap/iconmonstr"
+            android:label="更换icon"
+            android:targetActivity=".activity.ViewListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+        </activity-alias>
+
+
         <activity
             android:name=".activity.ShowActivity"
             android:screenOrientation="portrait" />

@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <com.example.wangweimin.customerview.view.ViewGridLayout
-        android:id="@+id/view_grids"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        app:horizontal_space="@dimen/activity_horizontal_margin"
-        app:vertical_space="@dimen/activity_vertical_margin"
-        android:columnCount="2" />
+        android:layout_height="match_parent">
+
+        <com.example.wangweimin.customerview.view.ViewGridLayout
+            android:id="@+id/view_grids"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:columnCount="2"
+            android:orientation="vertical"
+            app:horizontal_space="@dimen/activity_horizontal_margin"
+            app:vertical_space="@dimen/activity_vertical_margin" />
+    </ScrollView>
 
 </LinearLayout>

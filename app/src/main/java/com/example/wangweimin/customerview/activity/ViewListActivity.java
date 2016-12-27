@@ -1,7 +1,9 @@
 package com.example.wangweimin.customerview.activity;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -37,8 +39,13 @@ public class ViewListActivity extends AppCompatActivity {
     private final static String DASHBOARD_VIEW = "DashboardView";
     private final static String ROTATE_MENU_VIEW = "RotateMenuView";
     private final static String HACK_DIALOG = "HackDialog";
+    private final static String CHANGE_ICON = "Change_Icon";
 
     private Context mContext;
+
+    private ComponentName mDefault;
+    private ComponentName mTest;
+    private PackageManager mPm;
 
     @BindView(R.id.view_grids)
     ViewGridLayout gridLayout;
@@ -62,6 +69,7 @@ public class ViewListActivity extends AppCompatActivity {
         views.add(new CustomView(DASHBOARD_VIEW));
         views.add(new CustomView(ROTATE_MENU_VIEW));
         views.add(new CustomView(HACK_DIALOG));
+        views.add(new CustomView(CHANGE_ICON));
 
         ItemChangedListener<CustomView> listener = new ItemChangedListener<CustomView>() {
             @Override
@@ -92,10 +100,31 @@ public class ViewListActivity extends AppCompatActivity {
                     case HACK_DIALOG:
                         startActivity(new Intent(mContext, HackDialogServiceActivity.class));
                         break;
+                    case CHANGE_ICON:
+                        changeIconTest();
+                        break;
                 }
             }
         };
         gridLayout.setDataList(this, views, listener);
+
+        mDefault = getComponentName();
+        mTest = new ComponentName(getBaseContext(), "com.example.wangweimin.customerview.Test");
+        mPm = getApplication().getPackageManager();
+
+    }
+
+    private void changeIconTest(){
+        enableComponent(mTest);
+        disableComponent(mDefault);
+    }
+
+    private void enableComponent(ComponentName componentName){
+        mPm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+    }
+
+    private void disableComponent(ComponentName componentName){
+        mPm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
     }
 
     @Override
