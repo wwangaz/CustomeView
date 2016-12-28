@@ -40,6 +40,7 @@ public class ViewListActivity extends AppCompatActivity {
     private final static String ROTATE_MENU_VIEW = "RotateMenuView";
     private final static String HACK_DIALOG = "HackDialog";
     private final static String CHANGE_ICON = "Change_Icon";
+    private final static String DRAG_HIDEEN = "Drag_Hidden";
 
     private Context mContext;
 
@@ -102,6 +103,9 @@ public class ViewListActivity extends AppCompatActivity {
                         break;
                     case CHANGE_ICON:
                         changeIconTest();
+                        break;
+                    case DRAG_HIDEEN:
+                        startActivity(new Intent(mContext, ));
                         break;
                 }
             }
