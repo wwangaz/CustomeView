@@ -1,16 +1,16 @@
 package com.example.wangweimin.customerview.view.zoomHeader;
 
 import android.content.Context;
-import android.widget.LinearLayout;
+import android.support.v7.widget.LinearLayoutManager;
 
 /**
  * Created by wangweimin on 16/12/28.
  */
 
-public class CtrlLinearLayout extends LinearLayout {
+public class CtrlLinearLayoutManager extends LinearLayoutManager {
     private boolean isScrollEnabled = true;
 
-    public CtrlLinearLayout(Context context) {
+    public CtrlLinearLayoutManager(Context context) {
         super(context);
     }
 
@@ -19,7 +19,7 @@ public class CtrlLinearLayout extends LinearLayout {
     }
 
     @Override
-    public boolean canScrollVertically(int direction) {
-        return isScrollEnabled && super.canScrollVertically(direction);
+    public boolean canScrollHorizontally() {
+        return isScrollEnabled && super.canScrollHorizontally();
     }
 }
