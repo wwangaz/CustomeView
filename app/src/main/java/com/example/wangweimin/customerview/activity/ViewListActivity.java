@@ -71,6 +71,7 @@ public class ViewListActivity extends AppCompatActivity {
         views.add(new CustomView(ROTATE_MENU_VIEW));
         views.add(new CustomView(HACK_DIALOG));
         views.add(new CustomView(CHANGE_ICON));
+        views.add(new CustomView(DRAG_HIDEEN));
 
         ItemChangedListener<CustomView> listener = new ItemChangedListener<CustomView>() {
             @Override
@@ -105,7 +106,7 @@ public class ViewListActivity extends AppCompatActivity {
                         changeIconTest();
                         break;
                     case DRAG_HIDEEN:
-                        startActivity(new Intent(mContext, ));
+                        startActivity(new Intent(mContext, PathAnimActivity.class));
                         break;
                 }
             }
