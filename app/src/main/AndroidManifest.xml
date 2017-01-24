@@ -67,6 +67,8 @@
 
         <activity android:name=".activity.SvgActivity" />
 
+        <activity android:name=".activity.SurfaceViewTestActivity"/>
+
         <service android:name=".service.HackDialogService" />
     </application>
 

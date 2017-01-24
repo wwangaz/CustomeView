@@ -41,6 +41,7 @@ public class ViewListActivity extends AppCompatActivity {
     private final static String HACK_DIALOG = "HackDialog";
     private final static String CHANGE_ICON = "Change_Icon";
     private final static String DRAG_HIDEEN = "Drag_Hidden";
+    private final static String SURFACE_VIEW = "Surface_View";
 
     private Context mContext;
 
@@ -72,6 +73,7 @@ public class ViewListActivity extends AppCompatActivity {
         views.add(new CustomView(HACK_DIALOG));
         views.add(new CustomView(CHANGE_ICON));
         views.add(new CustomView(DRAG_HIDEEN));
+        views.add(new CustomView(SURFACE_VIEW));
 
         ItemChangedListener<CustomView> listener = new ItemChangedListener<CustomView>() {
             @Override
@@ -107,6 +109,9 @@ public class ViewListActivity extends AppCompatActivity {
                         break;
                     case DRAG_HIDEEN:
                         startActivity(new Intent(mContext, PathAnimActivity.class));
+                        break;
+                    case SURFACE_VIEW:
+                        startActivity(new Intent(mContext, SurfaceViewTestActivity.class));
                         break;
                 }
             }
