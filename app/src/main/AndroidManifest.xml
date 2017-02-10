@@ -63,6 +63,8 @@
             android:name=".activity.HackDialogServiceActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".activity.GraduallyViewActivity"/>
+
         <activity android:name=".activity.PathAnimActivity" />
 
         <activity android:name=".activity.SvgActivity" />

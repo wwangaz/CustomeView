@@ -11,7 +11,6 @@ import android.util.Log;
 
 import com.example.wangweimin.customerview.R;
 import com.example.wangweimin.customerview.entity.CustomView;
-import com.example.wangweimin.customerview.service.HackDialogService;
 import com.example.wangweimin.customerview.view.ViewGridLayout;
 import com.example.wangweimin.customerview.view.base.BaseGridLayout.ItemChangedListener;
 
@@ -36,7 +35,7 @@ public class ViewListActivity extends AppCompatActivity {
     private final static String AUTO_COMPLETE_VIEW = "AutoCompleteView";
     private final static String PIE_CHART_VIEW = "PieChartView";
     private final static String WAVE_PROGRESS_VIEW = "WaveProgressView";
-    private final static String DASHBOARD_VIEW = "DashboardView";
+    private final static String GRADUALLY_VIEW = "GraduallyView";
     private final static String ROTATE_MENU_VIEW = "RotateMenuView";
     private final static String HACK_DIALOG = "HackDialog";
     private final static String CHANGE_ICON = "Change_Icon";
@@ -68,7 +67,7 @@ public class ViewListActivity extends AppCompatActivity {
         views.add(new CustomView(AUTO_COMPLETE_VIEW));
         views.add(new CustomView(PIE_CHART_VIEW));
         views.add(new CustomView(WAVE_PROGRESS_VIEW));
-        views.add(new CustomView(DASHBOARD_VIEW));
+        views.add(new CustomView(GRADUALLY_VIEW));
         views.add(new CustomView(ROTATE_MENU_VIEW));
         views.add(new CustomView(HACK_DIALOG));
         views.add(new CustomView(CHANGE_ICON));
@@ -97,7 +96,8 @@ public class ViewListActivity extends AppCompatActivity {
                     case ROTATE_MENU_VIEW:
                         startActivity(new Intent(mContext, RotateMenuActivity.class));
                         break;
-                    case DASHBOARD_VIEW:
+                    case GRADUALLY_VIEW:
+                        startActivity(new Intent(mContext, GraduallyViewActivity.class));
                         break;
                     case WAVE_PROGRESS_VIEW:
                         break;

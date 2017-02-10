@@ -22,6 +22,6 @@ public class LoadingPathAnimView extends PathAnimView {
 
     public LoadingPathAnimView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setSourcePath(PathParserUtils.getPathFromArrayFloatList(StoreHousePath.getPath("ZhangXuTong")));
+        setSourcePath(PathParserUtils.getPathFromArrayFloatList(StoreHousePath.getPath("WANGWEIMIN")));
     }
 }

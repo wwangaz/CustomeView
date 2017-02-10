@@ -25,7 +25,7 @@ public class CstStoreHouseAnimView extends StoreHouseAnimView {
     public CstStoreHouseAnimView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         //根据String 转化成Path
-        setSourcePath(PathParserUtils.getPathFromArrayFloatList(StoreHousePath.getPath("ZhangXuTong", 1.1f, 16)));
+        setSourcePath(PathParserUtils.getPathFromArrayFloatList(StoreHousePath.getPath("WANGWEIMIN", 1.1f, 16)));
     }
 
 }
