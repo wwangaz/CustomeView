@@ -39,8 +39,9 @@ public class ViewListActivity extends AppCompatActivity {
     private final static String ROTATE_MENU_VIEW = "RotateMenuView";
     private final static String HACK_DIALOG = "HackDialog";
     private final static String CHANGE_ICON = "Change_Icon";
-    private final static String DRAG_HIDEEN = "Drag_Hidden";
+    private final static String PATH_ANIMATION = "Path_Animation";
     private final static String SURFACE_VIEW = "Surface_View";
+    private final static String COLOR_MATRIX = "Color_Matrix";
 
     private Context mContext;
 
@@ -71,8 +72,9 @@ public class ViewListActivity extends AppCompatActivity {
         views.add(new CustomView(ROTATE_MENU_VIEW));
         views.add(new CustomView(HACK_DIALOG));
         views.add(new CustomView(CHANGE_ICON));
-        views.add(new CustomView(DRAG_HIDEEN));
+        views.add(new CustomView(PATH_ANIMATION));
         views.add(new CustomView(SURFACE_VIEW));
+        views.add(new CustomView(COLOR_MATRIX));
 
         ItemChangedListener<CustomView> listener = new ItemChangedListener<CustomView>() {
             @Override
@@ -107,11 +109,14 @@ public class ViewListActivity extends AppCompatActivity {
                     case CHANGE_ICON:
                         changeIconTest();
                         break;
-                    case DRAG_HIDEEN:
+                    case PATH_ANIMATION:
                         startActivity(new Intent(mContext, PathAnimActivity.class));
                         break;
                     case SURFACE_VIEW:
                         startActivity(new Intent(mContext, SurfaceViewTestActivity.class));
+                        break;
+                    case COLOR_MATRIX:
+                        startActivity(new Intent(mContext, ColorMatrixActivity.class));
                         break;
                 }
             }
@@ -135,17 +140,5 @@ public class ViewListActivity extends AppCompatActivity {
 
     private void disableComponent(ComponentName componentName){
         mPm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i(TAG, "onPause");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i(TAG, "onResume");
     }
 }

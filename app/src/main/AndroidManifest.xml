@@ -3,6 +3,7 @@
     package="com.example.wangweimin.customerview">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".App"
@@ -70,6 +71,8 @@
         <activity android:name=".activity.SvgActivity" />
 
         <activity android:name=".activity.SurfaceViewTestActivity"/>
+
+        <activity android:name=".activity.ColorMatrixActivity"/>
 
         <service android:name=".service.HackDialogService" />
     </application>
