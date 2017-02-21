@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +36,8 @@ public class SurfaceViewTestActivity extends AppCompatActivity {
         private SurfaceHolder holder;
         private MyThread myThread;
         private Path mPath;
+        private int px;
+        private int py;
 
         public MyView(Context context) {
             super(context);
@@ -62,9 +63,9 @@ public class SurfaceViewTestActivity extends AppCompatActivity {
         public void surfaceDestroyed(SurfaceHolder holder) {
             Log.i(TAG, "surfaceDestroyed()");
             myThread.isRun = false;
-            try{
+            try {
                 myThread.join();
-            }catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
@@ -73,12 +74,18 @@ public class SurfaceViewTestActivity extends AppCompatActivity {
         public boolean onTouchEvent(MotionEvent event) {
             int x = (int) event.getX();
             int y = (int) event.getY();
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     mPath.moveTo(x, y);
+                    px = x;
+                    py = y;
                     break;
                 case MotionEvent.ACTION_MOVE:
-                    mPath.lineTo(x, y);
+                    int middleX = (px + x) / 2;
+                    int middleY = (py + y) / 2;
+                    mPath.quadTo(px, py, middleX, middleY);
+                    px = x;
+                    py = y;
                     break;
                 case MotionEvent.ACTION_UP:
                     break;
@@ -107,21 +114,21 @@ public class SurfaceViewTestActivity extends AppCompatActivity {
                 draw();
             }
             long end = System.currentTimeMillis();
-            if(end -start < 100){
-                try{
+            if (end - start < 100) {
+                try {
                     Thread.sleep(100 - (end - start));
-                }catch (InterruptedException e){
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         }
 
-        private void draw(){
+        private void draw() {
             Canvas c = null;
             try {
                 synchronized (holder) {
                     c = holder.lockCanvas();
-                    if(c!= null) {
+                    if (c != null) {
                         c.drawColor(Color.WHITE);
                         c.drawPath(mPath, mPaint);
                     }
