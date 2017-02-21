@@ -14,11 +14,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSeekBar;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
 import com.example.wangweimin.customerview.R;
+import com.example.wangweimin.customerview.view.zoomHeader.FlagImage;
 
 import java.io.IOException;
 
@@ -38,6 +40,9 @@ public class ColorMatrixActivity extends AppCompatActivity implements SeekBar.On
 
     private final static int PHOTO_REQUEST_CODE = 1;
 
+    @BindView(R.id.content)
+    LinearLayout contentLayout;
+
     @BindView(R.id.imageView)
     ImageView mImageView;
 
@@ -50,7 +55,7 @@ public class ColorMatrixActivity extends AppCompatActivity implements SeekBar.On
     @BindView(R.id.lum_seekbar)
     AppCompatSeekBar mLumSeekBar;
 
-    @OnClick({R.id.button1, R.id.button2, R.id.button3})
+    @OnClick({R.id.button1, R.id.button2, R.id.button3, R.id.button4})
     void onClick(View v) {
         switch (v.getId()) {
             case R.id.button1:
@@ -61,6 +66,9 @@ public class ColorMatrixActivity extends AppCompatActivity implements SeekBar.On
                 break;
             case R.id.button3:
                 mImageView.setImageBitmap(handleImageRelief(mBitmap));
+                break;
+            case R.id.button4:
+                handleImageFlag(mBitmap);
                 break;
         }
     }
@@ -258,6 +266,14 @@ public class ColorMatrixActivity extends AppCompatActivity implements SeekBar.On
             return bmp;
         }
         return null;
+    }
+
+    private void handleImageFlag(Bitmap bitmap) {
+        if (bitmap != null) {
+            FlagImage image = new FlagImage(this, bitmap);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(bitmap.getWidth(), bitmap.getHeight());
+            contentLayout.addView(image, 0, params);
+        }
     }
 
     private int checkColor(int color) {
