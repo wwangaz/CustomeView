@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.wangweimin.customerview.view.PullToLoadMoreLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.wangweimin.customerview.view.CustomScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/blue"
+                    android:text="page1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/cube_holo_blue_bright"
+                    android:text="page1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/cube_holo_blue_dark"
+                    android:text="page1" />
+
+            </LinearLayout>
+
+
+        </com.example.wangweimin.customerview.view.CustomScrollView>
+
+        <com.example.wangweimin.customerview.view.CustomScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bluegrass"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/blue"
+                    android:text="page2" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/cube_holo_blue_bright"
+                    android:text="page2" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/cube_holo_blue_dark"
+                    android:text="page2" />
+
+            </LinearLayout>
+
+        </com.example.wangweimin.customerview.view.CustomScrollView>
+
+
+    </com.example.wangweimin.customerview.view.PullToLoadMoreLayout>
+
+</LinearLayout>

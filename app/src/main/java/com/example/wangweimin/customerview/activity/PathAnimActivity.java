@@ -19,7 +19,6 @@ public class PathAnimActivity extends AppCompatActivity {
     LoadingPathAnimView fillView1;
     LoadingPathAnimView fillView2;
     CstStoreHouseAnimView storeView1;
-    CstStoreHouseAnimView storeView2;
     PathAnimView pathAnimView1;
     StoreHouseAnimView storeView3;
 
@@ -30,7 +29,6 @@ public class PathAnimActivity extends AppCompatActivity {
         fillView1 = (LoadingPathAnimView) findViewById(R.id.fillView1);
         fillView2 = (LoadingPathAnimView) findViewById(R.id.fillView2);
         storeView1 = (CstStoreHouseAnimView) findViewById(R.id.storeView1);
-        storeView2 = (CstStoreHouseAnimView) findViewById(R.id.storeView2);
 
 
         //设置颜色
@@ -38,7 +36,7 @@ public class PathAnimActivity extends AppCompatActivity {
 
 
         //动态设置 从StringArray里取
-        storeView2.setSourcePath(PathParserUtils.getPathFromStringArray(this, R.array.storehouse, 2));
+//        storeView2.setSourcePath(PathParserUtils.getPathFromStringArray(this, R.array.storehouse, 2));
 
         //动态设置Path实例
         pathAnimView1 = (PathAnimView) findViewById(R.id.pathAnimView1);
@@ -74,19 +72,19 @@ public class PathAnimActivity extends AppCompatActivity {
             e.printStackTrace();
         }*/
 
-        findViewById(R.id.btnSvg).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(PathAnimActivity.this, SvgActivity.class));
-            }
-        });
+//        findViewById(R.id.btnSvg).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(PathAnimActivity.this, SvgActivity.class));
+//            }
+//        });
     }
 
     public void start(View view) {
         fillView1.startAnim();//普通可xml预览path动画
         storeView1.startAnim();//普通可预览storeHouse动画
         fillView2.setAnimTime(3000).setAnimInfinite(false).startAnim();//可预览。设置了动画总时长，只执行一次的动画
-        storeView2.setAnimTime(1000).startAnim();//可预览，设置了动画时长的动画
+//        storeView2.setAnimTime(1000).startAnim();//可预览，设置了动画时长的动画
         pathAnimView1.startAnim();//通过代码设置path的普通动画，但是xml不可预览
         storeView3.setPathMaxLength(1200).setAnimTime(20000).startAnim();//通过代码设置path的stoneHouse动画，时长设的很大，设置了stoneHouse残影长度，可以看出stoneHouse残影效果。
     }
@@ -95,7 +93,7 @@ public class PathAnimActivity extends AppCompatActivity {
         fillView1.stopAnim();
         fillView2.stopAnim();
         storeView1.stopAnim();
-        storeView2.stopAnim();
+//        storeView2.stopAnim();
         pathAnimView1.stopAnim();
         storeView3.stopAnim();
     }
@@ -104,7 +102,7 @@ public class PathAnimActivity extends AppCompatActivity {
         fillView1.clearAnim();
         fillView2.clearAnim();
         storeView1.clearAnim();
-        storeView2.clearAnim();
+//        storeView2.clearAnim();
         pathAnimView1.clearAnim();
         storeView3.clearAnim();
     }

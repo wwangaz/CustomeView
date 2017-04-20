@@ -11,6 +11,7 @@ import android.util.Log;
 
 import com.example.wangweimin.customerview.R;
 import com.example.wangweimin.customerview.entity.CustomView;
+import com.example.wangweimin.customerview.view.PullToLoadMoreLayout;
 import com.example.wangweimin.customerview.view.ViewGridLayout;
 import com.example.wangweimin.customerview.view.base.BaseGridLayout.ItemChangedListener;
 
@@ -104,7 +105,7 @@ public class ViewListActivity extends AppCompatActivity {
                     case WAVE_PROGRESS_VIEW:
                         break;
                     case HACK_DIALOG:
-                        startActivity(new Intent(mContext, HackDialogServiceActivity.class));
+                        startActivity(new Intent(mContext, PullToLoadMoreActivity.class));
                         break;
                     case CHANGE_ICON:
                         changeIconTest();

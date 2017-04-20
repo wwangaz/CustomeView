@@ -33,19 +33,11 @@
         android:background="@color/yellow"
         android:padding="5dp"/>
 
-    <com.example.wangweimin.customerview.view.pathAnimation.CstStoreHouseAnimView
-        android:id="@+id/storeView2"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginTop="195dp"
-        android:background="@android:color/black"
-        android:padding="5dp"/>
-
     <com.example.wangweimin.customerview.view.pathAnimation.PathAnimView
         android:id="@+id/pathAnimView1"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="195dp"
         android:background="@color/blue"
         android:padding="5dp"/>
 
@@ -53,9 +45,18 @@
         android:id="@+id/storeView3"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="325dp"
+        android:layout_marginTop="260dp"
         android:background="@color/cube_holo_purple"
         android:padding="5dp"/>
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="stop"
+        android:text="暂停"/>
 
     <Button
         android:id="@+id/btn1"
@@ -63,16 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:onClick="start"
+        android:layout_toLeftOf="@id/btn2"
         android:text="动起来"/>
-
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/btn1"
-        android:onClick="stop"
-        android:text="控制自己"/>
 
     <Button
         android:id="@+id/btn3"
@@ -83,14 +76,6 @@
         android:onClick="reset"
         android:text="重置"/>
 
-    <Button
-        android:id="@+id/btnSvg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
 
-        android:layout_toRightOf="@id/btn3"
-        android:onClick="reset"
-        android:text="SVG"/>
 
 </RelativeLayout>
