@@ -35,6 +35,11 @@
                     android:layout_height="200dp"
                     android:background="@color/cube_holo_blue_dark"
                     android:text="page1" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/cube_holo_green_dark"
+                    android:text="page1" />
 
             </LinearLayout>
 

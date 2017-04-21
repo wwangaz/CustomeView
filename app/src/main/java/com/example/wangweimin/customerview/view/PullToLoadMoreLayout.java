@@ -150,9 +150,13 @@ public class PullToLoadMoreLayout extends ViewGroup {
         velocityTracker.addMovement(event);
 
         switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                lastY = y;
+                break;
             case MotionEvent.ACTION_MOVE:
                 int dy = lastY - y;
                 scrollBy(0, dy);
+                lastY = y;
                 break;
             case MotionEvent.ACTION_UP:
                 velocityTracker.computeCurrentVelocity(1000);
