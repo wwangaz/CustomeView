@@ -7,11 +7,9 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.example.wangweimin.customerview.R;
 import com.example.wangweimin.customerview.entity.CustomView;
-import com.example.wangweimin.customerview.view.PullToLoadMoreLayout;
 import com.example.wangweimin.customerview.view.ViewGridLayout;
 import com.example.wangweimin.customerview.view.base.BaseGridLayout.ItemChangedListener;
 
@@ -39,10 +37,11 @@ public class ViewListActivity extends AppCompatActivity {
     private final static String GRADUALLY_VIEW = "GraduallyView";
     private final static String ROTATE_MENU_VIEW = "RotateMenuView";
     private final static String HACK_DIALOG = "HackDialog";
-    private final static String CHANGE_ICON = "Change_Icon";
-    private final static String PATH_ANIMATION = "Path_Animation";
-    private final static String SURFACE_VIEW = "Surface_View";
-    private final static String COLOR_MATRIX = "Color_Matrix";
+    private final static String CHANGE_ICON = "ChangeIcon";
+    private final static String PATH_ANIMATION = "PathAnimation";
+    private final static String SURFACE_VIEW = "SurfaceView";
+    private final static String COLOR_MATRIX = "ColorMatrix";
+    private final static String ANIMATE_CHART = "AnimateChart";
 
     private Context mContext;
 
@@ -76,6 +75,7 @@ public class ViewListActivity extends AppCompatActivity {
         views.add(new CustomView(PATH_ANIMATION));
         views.add(new CustomView(SURFACE_VIEW));
         views.add(new CustomView(COLOR_MATRIX));
+        views.add(new CustomView(ANIMATE_CHART));
 
         ItemChangedListener<CustomView> listener = new ItemChangedListener<CustomView>() {
             @Override
@@ -118,6 +118,9 @@ public class ViewListActivity extends AppCompatActivity {
                         break;
                     case COLOR_MATRIX:
                         startActivity(new Intent(mContext, ColorMatrixActivity.class));
+                        break;
+                    case ANIMATE_CHART:
+                        startActivity(new Intent(mContext, AnimateChartActivity.class));
                         break;
                 }
             }

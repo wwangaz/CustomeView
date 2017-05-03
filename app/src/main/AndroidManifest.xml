@@ -76,6 +76,8 @@
 
         <activity android:name=".activity.PullToLoadMoreActivity" />
 
+        <activity android:name=".activity.AnimateChartActivity" />
+
         <service android:name=".service.HackDialogService" />
     </application>
 

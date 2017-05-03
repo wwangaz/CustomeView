@@ -4,33 +4,65 @@
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    tools:context=".activity.StoreDetailActivity">
+    android:background="@android:color/white"
+    tools:context=".activity.AnimateChartActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <LinearLayout
+        android:id="@+id/chart_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#f1f1f1">
-
-    </android.support.v7.widget.RecyclerView>
-
-    <RelativeLayout
-
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="60dp">
-
-        <ImageView
-            android:alpha="5"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/cart" />
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
 
         <View
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="#88000000" />
-    </RelativeLayout>
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2" />
+
+        <com.example.wangweimin.customerview.view.AnimateChart
+            android:id="@+id/column1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.4" />
+
+        <com.example.wangweimin.customerview.view.AnimateChart
+            android:id="@+id/column2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.4" />
+
+        <com.example.wangweimin.customerview.view.AnimateChart
+            android:id="@+id/column3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/set_value"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/chart_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="设置数值" />
+
+
 </RelativeLayout>
