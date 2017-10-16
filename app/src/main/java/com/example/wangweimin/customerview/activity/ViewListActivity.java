@@ -42,6 +42,8 @@ public class ViewListActivity extends AppCompatActivity {
     private final static String SURFACE_VIEW = "SurfaceView";
     private final static String COLOR_MATRIX = "ColorMatrix";
     private final static String ANIMATE_CHART = "AnimateChart";
+    private final static String CIRCLE_LOADING_VIEW = "CircleLoadingView";
+    private final static String CIRCLE_CONSTRAINT = "CircleConstraint";
 
     private Context mContext;
 
@@ -76,6 +78,8 @@ public class ViewListActivity extends AppCompatActivity {
         views.add(new CustomView(SURFACE_VIEW));
         views.add(new CustomView(COLOR_MATRIX));
         views.add(new CustomView(ANIMATE_CHART));
+        views.add(new CustomView(CIRCLE_LOADING_VIEW));
+        views.add(new CustomView(CIRCLE_CONSTRAINT));
 
         ItemChangedListener<CustomView> listener = new ItemChangedListener<CustomView>() {
             @Override
@@ -121,6 +125,12 @@ public class ViewListActivity extends AppCompatActivity {
                         break;
                     case ANIMATE_CHART:
                         startActivity(new Intent(mContext, AnimateChartActivity.class));
+                        break;
+                    case CIRCLE_LOADING_VIEW:
+                        startActivity(new Intent(mContext, CircleLoadingViewActivity.class));
+                        break;
+                    case CIRCLE_CONSTRAINT:
+                        startActivity(new Intent(mContext, ConstraintCircleActivity.class));
                         break;
                 }
             }

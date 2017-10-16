@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.wangweimin.customerview.view.CircleLoadingView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_centerInParent="true"
+        app:circleArcRadian="5"
+        app:circleArcSpacing="10"
+        app:circleArcWidth="10"
+        app:circleEndColor="#ff0000"
+        app:circleStartColor="#ffff00" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:src="@mipmap/iconmonstr"/>
+
+</RelativeLayout>

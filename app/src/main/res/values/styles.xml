@@ -21,4 +21,12 @@
     <declare-styleable name="ListRecyclerView">
         <attr name="recycler_divider" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="CircleLoadingView">
+        <attr name="circleStartColor" format="color"/>
+        <attr name="circleEndColor" format="color"/>
+        <attr name="circleArcSpacing" format="integer|reference"/>
+        <attr name="circleArcWidth" format="integer|reference"/>
+        <attr name="circleArcRadian" format="integer|reference"/>
+    </declare-styleable>
 </resources>

@@ -79,6 +79,10 @@
         <activity android:name=".activity.AnimateChartActivity" />
 
         <service android:name=".service.HackDialogService" />
+
+        <activity android:name=".activity.CircleLoadingViewActivity"/>
+
+        <activity android:name=".activity.ConstraintCircleActivity"/>
     </application>
 
 </manifest>

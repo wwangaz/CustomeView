@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/center_img"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="杜马盖地"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/center_img" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="杜马盖地在菲律宾第五大岛――内格罗斯岛，是东内格罗斯省的省会。城市不大，除了亚洲最古老的美国式大学Siliman University之外，还有东内格罗州立大学等多所高校，故有“大学城”之称。网上的介绍中有这样几句概括颇为传神：“与嘈杂喧嚣的宿雾（菲律宾第二大城市）相比，杜马格特不仅具有田园般的悠闲，也有很浓的书卷气，人间烟火与世外桃源在这座小城得以完美结合，这也是大批西方人在此定居的原因之一。”"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+
+</android.support.constraint.ConstraintLayout>
