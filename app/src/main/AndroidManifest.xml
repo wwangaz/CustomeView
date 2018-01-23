@@ -26,11 +26,10 @@
             android:icon="@mipmap/iconmonstr"
             android:label="更换icon"
             android:targetActivity=".activity.ViewListActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
 
         </activity-alias>
@@ -80,9 +79,11 @@
 
         <service android:name=".service.HackDialogService" />
 
-        <activity android:name=".activity.CircleLoadingViewActivity"/>
+        <activity android:name=".activity.CircleLoadingViewActivity" />
 
-        <activity android:name=".activity.ConstraintCircleActivity"/>
+        <activity android:name=".activity.ConstraintCircleActivity" />
+
+        <activity android:name=".activity.StickHeadActivity"/>
     </application>
 
 </manifest>

@@ -31,8 +31,6 @@ public class SlidFlopLayout extends HorizontalScrollView {
 
     private boolean isOpen;
 
-    private boolean once;
-
     public SlidFlopLayout(Context context) {
         this(context, null, 0);
     }
@@ -61,7 +59,6 @@ public class SlidFlopLayout extends HorizontalScrollView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (once) {
             LinearLayout wrapper = (LinearLayout) getChildAt(0);
             mMenu = (ViewGroup) wrapper.getChildAt(0);
             mContent = (ViewGroup) wrapper.getChildAt(1);
@@ -70,7 +67,7 @@ public class SlidFlopLayout extends HorizontalScrollView {
             mHalfMenuWidth = mMenuWidth / 2;
             mMenu.getLayoutParams().width = mMenuWidth;
             mContent.getLayoutParams().width = mScreenWidth;
-        }
+
 
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
@@ -79,9 +76,6 @@ public class SlidFlopLayout extends HorizontalScrollView {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
         this.scrollTo(mMenuWidth, 0);
-        if (changed) {
-            once = true;
-        }
     }
 
     @Override

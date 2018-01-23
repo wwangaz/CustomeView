@@ -34,8 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/wave_progress"
-                    android:layout_centerHorizontal="true"
-                    />
+                    android:layout_centerHorizontal="true" />
             </RelativeLayout>
 
             <RelativeLayout

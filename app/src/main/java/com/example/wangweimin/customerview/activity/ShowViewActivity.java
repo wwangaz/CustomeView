@@ -56,8 +56,9 @@ public class ShowViewActivity extends AppCompatActivity {
                 }
             }
         });
-        if (waveProgressView != null)
+        if (waveProgressView != null) {
             waveProgressView.setPercent(0);
+        }
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -30,8 +30,6 @@ public class SlidingMenuLayout extends HorizontalScrollView {
 
     private boolean isOpen;
 
-    private boolean once;
-
     public SlidingMenuLayout(Context context) {
         this(context, null, 0);
     }
@@ -60,17 +58,14 @@ public class SlidingMenuLayout extends HorizontalScrollView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (once) {
-            LinearLayout wrapper = (LinearLayout) getChildAt(0);
-            mMenu = (ViewGroup) wrapper.getChildAt(0);
-            mContent = (ViewGroup) wrapper.getChildAt(1);
+        LinearLayout wrapper = (LinearLayout) getChildAt(0);
+        mMenu = (ViewGroup) wrapper.getChildAt(0);
+        mContent = (ViewGroup) wrapper.getChildAt(1);
 
-            mMenuWidth = mScreenWidth - mMenuRightPadding;
-            mOneThirdMenuWidth = mMenuWidth / 3;
-            mMenu.getLayoutParams().width = mMenuWidth;
-            mContent.getLayoutParams().width = mScreenWidth;
-        }
-
+        mMenuWidth = mScreenWidth - mMenuRightPadding;
+        mOneThirdMenuWidth = mMenuWidth / 3;
+        mMenu.getLayoutParams().width = mMenuWidth;
+        mContent.getLayoutParams().width = mScreenWidth;
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
@@ -79,7 +74,6 @@ public class SlidingMenuLayout extends HorizontalScrollView {
         super.onLayout(changed, l, t, r, b);
         if (changed) {
             this.scrollTo(mMenuWidth, 0);
-            once = true;
         }
     }
 

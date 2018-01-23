@@ -46,7 +46,7 @@ public class FlagImage extends View {
             }
         }
         time = 0;
-        period = 2000;
+        period = 200;
         amplitude = 50;
         preTime = System.currentTimeMillis();
         setBackgroundColor(Color.WHITE);

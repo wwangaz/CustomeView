@@ -44,6 +44,7 @@ public class ViewListActivity extends AppCompatActivity {
     private final static String ANIMATE_CHART = "AnimateChart";
     private final static String CIRCLE_LOADING_VIEW = "CircleLoadingView";
     private final static String CIRCLE_CONSTRAINT = "CircleConstraint";
+    private final static String STICK_HEAD_LIST = "StickHeadList";
 
     private Context mContext;
 
@@ -80,6 +81,7 @@ public class ViewListActivity extends AppCompatActivity {
         views.add(new CustomView(ANIMATE_CHART));
         views.add(new CustomView(CIRCLE_LOADING_VIEW));
         views.add(new CustomView(CIRCLE_CONSTRAINT));
+        views.add(new CustomView(STICK_HEAD_LIST));
 
         ItemChangedListener<CustomView> listener = new ItemChangedListener<CustomView>() {
             @Override
@@ -131,6 +133,11 @@ public class ViewListActivity extends AppCompatActivity {
                         break;
                     case CIRCLE_CONSTRAINT:
                         startActivity(new Intent(mContext, ConstraintCircleActivity.class));
+                        break;
+                    case STICK_HEAD_LIST:
+                        startActivity(new Intent(mContext, StickHeadActivity.class));
+                        break;
+                    default:
                         break;
                 }
             }
